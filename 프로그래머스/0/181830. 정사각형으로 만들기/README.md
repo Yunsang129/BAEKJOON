@@ -1,6 +1,6 @@
 # [level 0] 정사각형으로 만들기 - 181830 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181830?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181830) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 12월 28일 15:47:34
+2024년 12월 28일 15:48:04
 
 ### 문제 설명
 
