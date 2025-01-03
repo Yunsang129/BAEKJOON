@@ -1,4 +1,4 @@
-def com(arr, index, level):
+def com(index, level):
 	if level == 6:
 		result.sort()
 		print(" ".join(map(str, result)))
@@ -6,7 +6,7 @@ def com(arr, index, level):
 
 	for i in range(index, len(arr)):
 		result.append(arr[i])
-		com(arr, i + 1, level + 1)
+		com(i + 1, level + 1)
 		result.pop()
 
 while True:
@@ -14,5 +14,6 @@ while True:
 	result = []
 	if arr == [0]:
 		break
-	com(arr[1:], 0, 0)
+	arr = arr[1:]
+	com(0, 0)
 	print()
