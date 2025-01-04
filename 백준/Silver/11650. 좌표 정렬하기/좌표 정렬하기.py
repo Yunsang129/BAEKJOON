@@ -1,8 +1,8 @@
 n = int(input())
 lst = []
-for _ in range(n):
-    x,y = map(int,input().split())
-    lst.append([x,y])
-lst.sort()
-for dx, dy in lst:
-    print(dx, dy)
+for i in range(n):
+	lst.append(list(map(int,input().split())))
+
+lst = sorted(lst, key = lambda x: (x[0], x[1]))
+for co in lst:
+	print(" ".join(map(str,co)))
