@@ -12,25 +12,25 @@ def solution(rows, columns, queries):
     return result
 
 def rotate_num(y1, x1, y2, x2, matrix):
-    first_num = matrix[y1][x1]
-    min_value = first_num
-    ny, nx = y1, x1
+    pos = []
     
-    for i in range(y1, y2):
-        matrix[i][x1] = matrix[i + 1][x1]
-        min_value = min(min_value, matrix[i][x1])
-    
-    for i in range(x1, x2):
-        matrix[y2][i] = matrix[y2][i + 1]
-        min_value = min(min_value, matrix[y2][i])
+    for i in range(x1, x2 + 1):
+        pos.append((y1, i))
         
-    for i in range(y2, y1, -1):
-        matrix[i][x2] = matrix[i - 1][x2]
-        min_value = min(min_value, matrix[i][x2])
+    for i in range(y1 + 1, y2 + 1):
+        pos.append((i, x2))
+        
+    for i in range(x2 - 1, x1 - 1, -1):
+        pos.append((y2, i))
+        
+    for i in range(y2 - 1, y1, -1):
+        pos.append((i, x1))
     
-    for i in range(x2, x1 + 1, -1):
-        matrix[y1][i] = matrix[y1][i - 1]
-        min_value = min(min_value, matrix[y1][i])
     
-    matrix[y1][x1 + 1] = first_num
-    return min_value
+    N = len(pos)
+    for i in range(N - 1, 0, -1):
+        ny, nx = pos[i][0], pos[i][1]
+        by, bx = pos[i - 1][0], pos[i - 1][1]
+        matrix[ny][nx], matrix[by][bx] = matrix[by][bx], matrix[ny][nx]
+    
+    return min(matrix[y][x] for y, x in pos)
